@@ -1,50 +1,50 @@
-Objective: To create a Python program that uses the following agents and tools to analyze system errors and generate solution guidance:
+## Emmanuel Akinwale
+# System Error Analysis Python Program
 
-Get Operating System Agent: This agent gets the operating system name.
-Run System Diagnostic Agent: This agent runs a system diagnostic and gets the output.
-Error Analysis Agent: This agent analyzes the error output using the OpenAI API.
-Log Writer Tool: This tool writes the results of the analysis to a log file.
-Create Solution Guidance Tool: This tool creates a solution guidance log file if an error is found.
-The chain of agents and tools works as follows:
+## Objective
+This project aims to develop a Python program that utilizes agents and tools to effectively analyze system errors, generate solution guidance, and improve troubleshooting processes.
 
-The Get Operating System Agent gets the operating system name.
-The Run System Diagnostic Agent runs a system diagnostic and gets the output. The output of the system diagnostic is written to a log file called "system_dialog.log".
-The Error Analysis Agent analyzes the error output using the OpenAI API. The results of the analysis are written to a log file called "AI_Analysis.log".
-If there is an error found, the Create Solution Guidance Tool creates a solution guidance log file with a summary of the problem and a few basic troubleshooting instructions.
-The program will also print the following messages to the console as it goes through each step of the program:
+## Agents and Tools
 
-"The operating system is: [operating system name]"
-"The system diagnostic output has been written to the system_dialog.log file."
-"The error output has been analyzed using the OpenAI API and the results have been written to the AI_Analysis.log file."
-"If an error was found, a solution guidance log file has been created with a summary of the problem and a few basic troubleshooting instructions."
-"If no errors were found, the program has finished running."
+### 1. Get Operating System Agent (OperatingSystemAgent.py)
+- Retrieves the operating system name.
+- Prints and returns the message "The operating system is: [operating system name]".
 
-Detailed Steps:
-1. Implement Get Operating System Agent (OperatingSystemAgent.py)
-a. Retrieve the operating system name.
-b. Print and return the message "The operating system is: [operating system name]".
+### 2. Run System Diagnostic Agent (RunSystemDiagnosticAgent.py)
+- Runs system diagnostics.
+- Writes the output to "system_dialog.log".
+- Prints and returns the message "The system diagnostic output has been written to the system_dialog.log file."
 
-2. Implement Run System Diagnostic Agent (RunSystemDiagnosticAgent.py)
-a. Run system diagnostics.
-b. Write the output to system_dialog.log.
-c. Print and return the message "The system diagnostic output has been written to the system_dialog.log file."
+### 3. Error Analysis Agent (ErrorAnalysisAgent.py)
+- Analyzes the error output using the OpenAI API.
+- Reads the content of "system_diagnostic.log", "system_event_log.log", and user-uploaded error log files.
+- Analyzes the combined content using the OpenAI API.
+- Appends analysis results to "AI_Analysis.log".
+- Prints the message "The error output has been analyzed using the OpenAI API, and the results have been appended to the AI_Analysis.log file."
 
-3. Implement Error Analysis Agent (ErrorAnalysisAgent.py)
-a. Analyze the error output using OpenAI API.
-b. Write results to AI_Analysis.log.
-c. Print and return the message "The error output has been analyzed using the OpenAI API and the results have been written to the AI_Analysis.log file."
+### 4. Create Solution Guidance Tool (SolutionGuidanceTool.py)
+- Creates a solution guidance log file if an error is found.
+- Prints the message "A solution guidance log file has been created with a summary of the problem and a few basic troubleshooting instructions."
+- If no errors are found, prints the message "If no errors were found, the program has finished running."
 
-4. Implement Create Solution Guidance Tool (SolutionGuidanceTool.py)
-a. If an error is found, create a solution guidance log file.
-b. Print the message "A solution guidance log file has been created with a summary of the problem and a few basic troubleshooting instructions."
-c. If no errors are found, print the message "If no errors were found, the program has finished running."
+### 5. Log Writer Tool (LogWriterTool.py)
+- Defines methods to write logs to specified files.
 
-5. Implement Log Writer Tool (LogWriterTool.py)
-a. Define methods to write logs to specified files.
+## Chain of Execution
 
-6. Main Logic (Main.py)
-a. Call the Get Operating System Agent.
-b. Call the Run System Diagnostic Agent.
-c. Call the Error Analysis Agent.
-d. If an error is found, call the Create Solution Guidance Tool.
-e. Print appropriate messages as described in the objective.
+1. Get Operating System Agent retrieves the operating system name.
+2. Run System Diagnostic Agent runs system diagnostics and writes the output to "system_dialog.log".
+3. Error Analysis Agent analyzes the error output using the OpenAI API, considering "system_diagnostic.log", "system_event_log.log", and user-uploaded logs.
+4. Analysis results are appended to "AI_Analysis.log".
+5. If an error is found, Create Solution Guidance Tool creates a solution guidance log file.
+6. Appropriate messages are printed as described in the objective.
+
+## Usage
+
+1. Run the `Main.py` script to execute the program.
+2. Select options to execute individual modules or automatically run all modules.
+3. The program follows a sequence of agent execution as described above.
+
+---
+
+This program streamlines the analysis of system errors, the generation of solution guidance, and enhances troubleshooting by utilizing a combination of agents and tools.
